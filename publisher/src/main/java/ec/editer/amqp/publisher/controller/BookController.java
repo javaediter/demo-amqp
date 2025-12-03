@@ -39,7 +39,7 @@ public class BookController {
     }
     
     @PreAuthorize("hasRole('USER')")
-    @PutMapping("/books/update")
+    @PutMapping("/update")
     public ResponseEntity<Book> updateBook(@RequestBody HashMap<String, Object> body){
         Integer id = (Integer)body.get("id");       
         return bookService.getBookById(id).map(book -> {

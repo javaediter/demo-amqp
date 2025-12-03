@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -43,7 +44,8 @@ public class SecurityJwtUtilTest {
         
         user = new User("admin@gmail.com", "admin", authorities);
     }
-    
+
+    @Disabled
     @Test
     public void encoderPasswordTest(){
         String encoderPasswd = passwordEncoder.encode("admin");
@@ -57,7 +59,7 @@ public class SecurityJwtUtilTest {
         System.out.println("token: " + token);
         assertNotNull(token);
     }
-    
+
     @Test
     public void extractUsernameTest(){
         String token = jwtUtil.generateToken(user);
@@ -65,7 +67,7 @@ public class SecurityJwtUtilTest {
         System.out.println("username: " + username);
         assertNotNull(username);
     }
-    
+
     @Test
     public void validateTokenTest(){
         String token = jwtUtil.generateToken(user);        

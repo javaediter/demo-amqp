@@ -1,4 +1,4 @@
-package ec.editer.amqp.publisher.model.service;
+package ec.editer.amqp.publisher.service;
 
 import ec.editer.amqp.publisher.dto.UserDTO;
 import ec.editer.amqp.publisher.security.RolRepository;

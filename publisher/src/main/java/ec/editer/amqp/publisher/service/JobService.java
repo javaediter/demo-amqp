@@ -13,6 +13,7 @@ import java.util.Date;
 @Service
 public class JobService {
     private final BookRepository bookRepository;
+    private final IBookProducer bookProducer;
 
     @Scheduled(cron = "#{environment.getProperty('cron.job')}")
     public void countAvailableBooks(){
@@ -21,5 +22,6 @@ public class JobService {
         long countNotAvailable = bookRepository.countByAvailable(false);
         log.info("----- available books {} -----", countAvailable);
         log.info("----- not available books {} -----", countNotAvailable);
+        bookProducer.sendCountNotAvailableBook(countAvailable);
     }
 }

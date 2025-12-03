@@ -31,8 +31,7 @@ public class AmqpConfig {
     }
     
     @Bean
-    public TopicExchange topicExchange(@Value("${amqp.topic.name}") String exchangeName){
+    public TopicExchange topicExchange(@Value("${amqp.loans.topic.name}") String exchangeName){
         return ExchangeBuilder.topicExchange(exchangeName).durable(true).build();
     }
-    
 }

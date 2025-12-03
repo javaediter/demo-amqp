@@ -21,8 +21,8 @@ import java.util.Date;
 @Service
 public class LoanProducer implements ILoanProducer{
     
-    @Value("${amqp.topic.name}")
-    private String exchange;
+    @Value("${amqp.loans.topic.name}")
+    private String loansTopic;
     
     private final RabbitTemplate rabbitTemplate;
 
@@ -30,7 +30,7 @@ public class LoanProducer implements ILoanProducer{
     public void send(LoanMessageDTO loanMessageDTO) {
         log.info("----- send for {} -----", loanMessageDTO.getIdBook());
         final String routingKey = "loan.book.id";
-        rabbitTemplate.convertAndSend(exchange, routingKey, loanMessageDTO);
+        rabbitTemplate.convertAndSend(loansTopic, routingKey, loanMessageDTO);
     }
 
     @Override

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("/**")
 @RestController
 @RequestMapping("/welcome")
-public class HomeController {
+public class WelcomeController {
     
     @GetMapping
     public ResponseEntity<String> welcome(){

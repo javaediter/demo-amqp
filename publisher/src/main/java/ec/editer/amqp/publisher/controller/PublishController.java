@@ -1,7 +1,7 @@
 package ec.editer.amqp.publisher.controller;
 
 import ec.editer.amqp.message.dto.LoanMessageDTO;
-import ec.editer.amqp.publisher.model.service.ILoanProducer;
+import ec.editer.amqp.publisher.service.ILoanProducer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
 package ec.editer.amqp.publisher.controller;
 
 import ec.editer.amqp.publisher.dto.UserDTO;
-import ec.editer.amqp.publisher.model.service.IUserService;
+import ec.editer.amqp.publisher.service.IUserService;
 import jakarta.validation.Valid;
 import java.sql.SQLException;
 import lombok.RequiredArgsConstructor;

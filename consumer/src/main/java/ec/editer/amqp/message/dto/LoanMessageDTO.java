@@ -15,4 +15,5 @@ public class LoanMessageDTO {
     private Integer idBook;
     private String idPerson;
     private String strDate;
+    private boolean reversed;
 }

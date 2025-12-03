@@ -1,33 +1,33 @@
 package ec.editer.amqp.publisher;
 
-import ec.editer.amqp.publisher.controller.LoanBookController;
+import ec.editer.amqp.publisher.controller.BookController;
 import ec.editer.amqp.publisher.model.Book;
-import ec.editer.amqp.publisher.model.service.IBookService;
-import ec.editer.amqp.publisher.model.service.ILoanService;
-import java.util.Optional;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import ec.editer.amqp.publisher.service.IBookService;
+import ec.editer.amqp.publisher.service.ILoanService;
 import org.junit.jupiter.api.Test;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
-@SpringBootTest(classes = {LoanBookController.class, BCryptPasswordEncoder.class})
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+@SpringBootTest(classes = {BookController.class, BCryptPasswordEncoder.class})
 class PublisherApplicationTests {
-@MockitoBean
+    @MockitoBean
     private IBookService bookService;
     
     @MockitoBean
     private ILoanService loanService;
     
     @Autowired
-    private LoanBookController loanBookController;
+    private BookController loanBookController;
     
     @Test
     public void getBookByIdFoundTest(){
@@ -48,7 +48,7 @@ class PublisherApplicationTests {
         //Assert
         assertNotNull(response);
         assertNotNull(response.getBody());
-        assertTrue(response.getBody().getTitle().equals(book.getTitle()));
+        assertEquals(response.getBody().getTitle(), book.getTitle());
         
         verify(bookService).getBookById(anyInt());
     }

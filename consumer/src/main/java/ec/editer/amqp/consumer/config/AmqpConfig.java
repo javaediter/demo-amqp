@@ -24,8 +24,11 @@ import org.springframework.integration.dsl.IntegrationFlow;
 @Configuration
 public class AmqpConfig {
     
-    @Value("${amqp.queue.name}") 
-    private String queueName;
+    @Value("${amqp.loan.queue.name}")
+    private String queueLoanName;
+
+    @Value("${amqp.book.queue.name}")
+    private String queueBookName;
     
     @Bean
     public MessageConverter messageConverter(){
@@ -40,38 +43,52 @@ public class AmqpConfig {
     }
     
     @Bean
-    public TopicExchange topicExchange(@Value("${amqp.topic.name}") String exchangeName){
+    public TopicExchange topicExchange(@Value("${amqp.loans.topic.name}") String exchangeName){
         return ExchangeBuilder.topicExchange(exchangeName).durable(true).build();
     }
     
     @Bean
     public Queue queueLoans(){
-        return QueueBuilder.durable(queueName).build();
+        return QueueBuilder.durable(queueLoanName).build();
     }
     
     @Bean
-    public Binding bindingQueueToExchange(final Queue queueLoans, final TopicExchange topicExchange){
-        return BindingBuilder.bind(queueLoans).to(topicExchange).with("loan.#");
+    public Binding bindingLoanQueueToExchange(final Queue queueLoans, final TopicExchange topicExchange){
+        return BindingBuilder.bind(queueLoans).to(topicExchange).with("#.id");
     }
-    
+
     @Bean
-    public SimpleMessageListenerContainer listenerContainer(ConnectionFactory connectionFactory){
-        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
-        container.setConnectionFactory(connectionFactory);
-        container.setQueueNames(queueName);
-        return container;
+    public Queue queueBooks(){
+        return QueueBuilder.durable(queueBookName).build();
     }
-    
+
+    @Bean
+    public Binding bindingBookQueueToExchange(final Queue queueBooks, final  TopicExchange topicExchange){
+        return BindingBuilder.bind(queueBooks).to(topicExchange).with("#.ava");
+    }
+
     @Bean
     public IntegrationFlow inboundFlowLoan(
-            final SimpleMessageListenerContainer listenerContainer, 
+            ConnectionFactory connectionFactory,
             final ITransformLoan transformLoan,
             final ILoanBookService service){
         return IntegrationFlow.from(
-                Amqp.inboundAdapter(listenerContainer)
+                Amqp.inboundAdapter(connectionFactory, queueLoanName)
         )
                 .transform(LoanMessageDTO.class, transformLoan::transform)
                 .handle(LoanBook.class, (payload, header) -> service.create(payload))
+                .get();
+    }
+
+    @Bean
+    public IntegrationFlow inboundFlowBook(ConnectionFactory connectionFactory){
+        return IntegrationFlow.from(
+                Amqp.inboundAdapter(connectionFactory, queueBookName)
+        )
+                .handle(Long.class, (payload, header) -> {
+                    System.out.println(">>>>> available books " + payload);
+                    return null;
+                })
                 .get();
     }
 }

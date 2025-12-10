@@ -10,6 +10,5 @@ public class LoanBookDTO {
     private Integer idBook;
     private String idPerson;
     private String date;
-    private boolean reversed;
-    private boolean valid;
+    private String status;
 }

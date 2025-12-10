@@ -19,7 +19,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/books")
-@CrossOrigin("/**")
 public class BookController {
     
     private final IBookService bookService;
@@ -43,7 +42,7 @@ public class BookController {
     public ResponseEntity<Book> updateBook(@RequestBody HashMap<String, Object> body){
         Integer id = (Integer)body.get("id");       
         return bookService.getBookById(id).map(book -> {
-            book.setAvailable(!book.isAvailable());
+            book.setAvailable(false);
             return ResponseEntity.ok(bookService.updateBook(book));
         }).orElse(ResponseEntity.notFound().build());
     }

@@ -36,6 +36,7 @@ public class Loan {
     
     private Date date;    
     private boolean reversed;
+    private boolean active;
     
     @JoinColumn(name = "id_book")
     @ManyToOne(fetch = FetchType.EAGER)

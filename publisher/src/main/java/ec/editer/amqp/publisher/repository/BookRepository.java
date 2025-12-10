@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author Edison Teran
  */
 public interface BookRepository extends JpaRepository<Book, Integer>{
-    List<Book> findAllByTitleContainingAndAvailable(String title, boolean available);
+    List<Book> findAllByTitleContaining(String title);
     long countByAvailable(boolean available);
 }

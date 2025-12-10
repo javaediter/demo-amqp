@@ -1,7 +1,10 @@
 package ec.editer.amqp.publisher.service;
 
 import ec.editer.amqp.publisher.dto.LoanDTO;
+import ec.editer.amqp.publisher.dto.LoanFullDTO;
 import ec.editer.amqp.publisher.model.Loan;
+
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -11,6 +14,7 @@ import java.util.Optional;
 public interface ILoanService {
     
     Optional<Loan> register(LoanDTO loanRequest);
-    Optional<Loan> getLastByIdPerson(String idPerson);
-    boolean deleteLoan(Loan loan);
+    Optional<Loan> getById(Integer id);
+    boolean updateLoan(Loan loan);
+    List<LoanFullDTO> getAllByDates(String date);
 }

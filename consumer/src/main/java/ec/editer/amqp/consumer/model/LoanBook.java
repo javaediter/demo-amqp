@@ -1,9 +1,10 @@
 package ec.editer.amqp.consumer.model;
 
-import java.util.Date;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Date;
 
 /**
  *
@@ -18,6 +19,5 @@ public class LoanBook {
     private Integer idBook;
     private String idPerson;
     private Date date;
-    private boolean reversed;
-    private boolean valid;
+    private String status;
 }

@@ -1,0 +1,25 @@
+<h3>New Loan</h3>
+<div>
+  <form #fl = "ngForm" (ngSubmit)="fl.form.valid && submitLoan(fl)">
+    <div>
+      <input type="text" class="form-control" placeholder="Title of book" name="book" ngModel (keyup)="searchBooksByTitle($event)" />
+      <select name="selectBook" class="form-select" ngModel (change)="selectBook($event)">
+        <option *ngFor="let book of books" value="{{ book.id }}">{{ book.title }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="idPerson">Identification</label>
+      <input id="idPerson" name="idPerson" type="text" class="form-control" ngModel required />
+    </div>
+    <div>
+      <label for="firstName">First Name</label>
+      <input id="firstName" name="firstName" type="text" class="form-control" ngModel required />
+    </div>
+    <div>
+      <label for="lastName">Last Name</label>
+      <input id="lastName" name="lastName" type="text" class="form-control" ngModel required />
+    </div>
+    <button type="reset" class="btn w-50">Cancel</button>
+    <button type="submit" class="btn btn-primary w-50">Save</button>
+  </form>
+</div>

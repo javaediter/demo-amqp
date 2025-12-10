@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Edison Teran
  */
 @Slf4j
-@CrossOrigin("/**")
 @RestController
 @RequestMapping("/welcome")
 public class WelcomeController {

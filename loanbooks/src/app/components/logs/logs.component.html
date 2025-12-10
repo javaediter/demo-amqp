@@ -1,0 +1,27 @@
+<h3>Logs</h3>
+<div>
+  <button type="button" class="btn btn-info m-1" disabled="{{ dis }}" (click)="backPage()" >Back</button>
+  <button type="button" class="btn btn-info m-1" (click)="nextPage()">Next</button>
+</div>
+<div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Id Book</th>
+      <th>Id Person</th>
+      <th>Status</th>
+      <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let log of logs">
+      <td>{{ log.id }}</td>
+      <td>{{ log.idBook }}</td>
+      <td>{{ log.idPerson }}</td>
+      <td>{{ log.status }}</td>
+      <td>{{ log.date }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin("/**")
 @RequestMapping("/api/pub")
 public class PublishController {
     

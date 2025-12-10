@@ -19,7 +19,7 @@ public class BookService implements IBookService{
 
     @Override
     public List<Book> getBooksByTitle(String title) {
-        return bookRepository.findAllByTitleContainingAndAvailable(title, true);
+        return bookRepository.findAllByTitleContaining(title);
     }
 
     @Override

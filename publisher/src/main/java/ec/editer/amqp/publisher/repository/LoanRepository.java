@@ -1,14 +1,15 @@
 package ec.editer.amqp.publisher.repository;
 
 import ec.editer.amqp.publisher.model.Loan;
-import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author Edison Teran
  */
 public interface LoanRepository extends JpaRepository<Loan, Integer>{
-    
-    Optional<Loan> findTopByIdPersonAndReversedOrderByIdDesc(String idPerson, boolean reversed);
+    List<Loan> findAllByDateLessThanEqual(Date date);
 }

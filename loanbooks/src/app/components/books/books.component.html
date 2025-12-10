@@ -1,0 +1,38 @@
+<h3>Books</h3>
+<div>
+    <input class="form-control" type="text" [(ngModel)]="title" placeholder="Enter book title" />
+    <button class="btn btn-primary" (click)="searchBooks()">Search</button>
+</div>
+<div>
+    <div class="text-center mt-1">
+      <p class="text-warning">{{ message }}</p>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Authors</th>
+            <th>ISBN</th>
+            <th>Year</th>
+            <th>Available</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let book of books">
+            <td>{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.authors }}</td>
+            <td>{{ book.isbn }}</td>
+            <td>{{ book.year }}</td>
+            <td>{{ book.available }}</td>
+            <td>
+              @if (book.available){
+                <button type="button" class="btn btn-danger" (click)="updateStateBook(book.id)">Unavailable</button>
+              }
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

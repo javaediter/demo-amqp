@@ -5,6 +5,7 @@ import ec.editer.amqp.publisher.service.IUserService;
 import jakarta.validation.Valid;
 import java.sql.SQLException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Edison Teran
  */
+@Slf4j
 @RequiredArgsConstructor
-@CrossOrigin("/**")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -28,6 +29,7 @@ public class UserController {
     
     @PostMapping("/user/create")
     public ResponseEntity createUser(@Valid @RequestBody UserDTO userRequest) throws SQLException{
+        log.info("----- createUser for {} -----", userRequest.getUsername());
         userRequest.setPassword(passwordEncoder.encode(userRequest.getPassword())); 
         return userService.create(userRequest)
                 .map(user -> ResponseEntity.ok(user))

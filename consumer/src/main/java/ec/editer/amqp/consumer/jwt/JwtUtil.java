@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
@@ -27,14 +28,14 @@ public class JwtUtil {
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() * 1000 * 60 * 60))
-                .signWith(Keys.hmacShaKeyFor(SECRET.getBytes()), SignatureAlgorithm.HS256)
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
+                .signWith(Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8)), SignatureAlgorithm.HS256)
                 .compact();
     }
     
     public String extractUsername(String token){
         return Jwts.parserBuilder()
-                .setSigningKey(SECRET.getBytes())
+                .setSigningKey(SECRET.getBytes(StandardCharsets.UTF_8))
                 .build()
                 .parseClaimsJws(token)
                 .getBody()
@@ -48,7 +49,7 @@ public class JwtUtil {
     
     private boolean isExpired(String token){
         Date exp = Jwts.parserBuilder()
-                .setSigningKey(SECRET.getBytes())
+                .setSigningKey(SECRET.getBytes(StandardCharsets.UTF_8))
                 .build().parseClaimsJws(token)
                 .getBody()
                 .getExpiration();

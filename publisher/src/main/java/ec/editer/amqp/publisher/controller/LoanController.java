@@ -1,6 +1,7 @@
 package ec.editer.amqp.publisher.controller;
 
 import ec.editer.amqp.publisher.dto.LoanDTO;
+import ec.editer.amqp.publisher.dto.LoanFullDTO;
 import ec.editer.amqp.publisher.model.Loan;
 import ec.editer.amqp.publisher.service.ILoanProducer;
 import ec.editer.amqp.publisher.service.ILoanService;
@@ -12,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -21,11 +23,17 @@ import java.util.HashMap;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/loans")
-@CrossOrigin("/**")
 public class LoanController {
 
     private final ILoanService loanService;
     private final ILoanProducer loanProducer;
+
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @GetMapping("/all-before")
+    public ResponseEntity<List<LoanFullDTO>> getAllByDate(@RequestParam String date){
+        log.info("----- getAllByDate by {} -----", date);
+        return ResponseEntity.ok(loanService.getAllByDates(date));
+    }
 
     @PreAuthorize("hasRole('USER')")
     @PostMapping("/create")
@@ -39,14 +47,29 @@ public class LoanController {
     }
     
     @PreAuthorize("hasRole('USER')")
-    @DeleteMapping("/delete")
-    public ResponseEntity<Boolean> deleteLoanByIdPerson(@RequestBody HashMap<String, Object> body){
-        String idPerson = (String)body.get("idPerson");
-        log.info("---> deleteLoanByIdPerson for {}", idPerson);
-        return loanService.getLastByIdPerson(idPerson)
+    @PostMapping("/reverse")
+    public ResponseEntity<Boolean> reverseLoan(@RequestBody HashMap<String, Object> body){
+        Integer id = (Integer)body.get("idLoan");
+        log.info("---> reverseLoan for {}", id);
+        return loanService.getById(id)
                 .map(loan -> {
+                    loan.setReversed(true);
                     loanProducer.send(loanProducer.convertToLoanMessageDTO(loan));
-                    return ResponseEntity.ok(loanService.deleteLoan(loan));
+                    return ResponseEntity.ok(loanService.updateLoan(loan));
+                })
+                .orElse(ResponseEntity.noContent().build());
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @PostMapping("/end")
+    public ResponseEntity<Boolean> endingLoan(@RequestBody HashMap<String, Object> body){
+        Integer id = (Integer)body.get("idLoan");
+        log.info("---> endingLoan for {}", id);
+        return loanService.getById(id)
+                .map(loan -> {
+                    loan.setActive(false);
+                    loanProducer.send(loanProducer.convertToLoanMessageDTO(loan));
+                    return ResponseEntity.ok(loanService.updateLoan(loan));
                 })
                 .orElse(ResponseEntity.noContent().build());
     }

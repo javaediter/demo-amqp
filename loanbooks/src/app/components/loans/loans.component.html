@@ -1,0 +1,36 @@
+<h3>Loans</h3>
+<div>
+  <input class="form-control" type="date" [(ngModel)]="date" />
+  <button class="btn btn-primary" (click)="searchLoans()">Search</button>
+</div>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Person</th>
+        <th>Id Person</th>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loan of loans">
+        <td>{{ loan.id }}</td>
+        <td>{{ loan.firstName }} {{ loan.lastName }}</td>
+        <td>{{ loan.idPerson }}</td>
+        <td>{{ loan.date }}</td>
+        <td>{{ loan.book.title }}</td>
+        <td>{{ loan.status }}</td>
+        <td>
+          @if (loan.status == 'CREATED'){
+            <button id="btn-rev-{{ loan.id }}" type="button" class="btn btn-warning m-1" (click)="reverseLoans(loan.id)">Reverse</button>
+            <button id="btn-end-{{ loan.id }}" type="button" class="btn btn-success mt-1" (click)="endLoan(loan.id)">End</button>
+          }
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

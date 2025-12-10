@@ -2,6 +2,7 @@ package ec.editer.amqp.publisher.service;
 
 import ec.editer.amqp.message.dto.LoanMessageDTO;
 import ec.editer.amqp.publisher.dto.LoanDTO;
+import ec.editer.amqp.publisher.enums.Status;
 import ec.editer.amqp.publisher.model.Loan;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,7 @@ import java.util.Date;
 @RequiredArgsConstructor
 @Service
 public class LoanProducer implements ILoanProducer{
+    private static final SimpleDateFormat FORMAT_DATE = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     
     @Value("${amqp.loans.topic.name}")
     private String loansTopic;
@@ -35,23 +37,21 @@ public class LoanProducer implements ILoanProducer{
 
     @Override
     public LoanMessageDTO convertToOkLoanMessageDTO(LoanDTO loanDTO) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         LoanMessageDTO loanMessageDTO = new LoanMessageDTO();
         loanMessageDTO.setIdBook(loanDTO.getIdBook());
         loanMessageDTO.setIdPerson(loanDTO.getIdPerson());
-        loanMessageDTO.setStrDate(format.format(new Date()));
-        loanMessageDTO.setReversed(false);
+        loanMessageDTO.setStrDate(FORMAT_DATE.format(new Date()));
+        loanMessageDTO.setStatus(Status.CREATED.name());
         return loanMessageDTO;
     }
 
     @Override
     public LoanMessageDTO convertToLoanMessageDTO(Loan loan) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         LoanMessageDTO loanMessageDTO = new LoanMessageDTO();
         loanMessageDTO.setIdBook(loan.getBook().getId());
         loanMessageDTO.setIdPerson(loan.getIdPerson());
-        loanMessageDTO.setStrDate(format.format(new Date()));
-        loanMessageDTO.setReversed(true);
+        loanMessageDTO.setStrDate(FORMAT_DATE.format(new Date()));
+        loanMessageDTO.setStatus(loan.isReversed() ? Status.REVERSED.name() : loan.isActive() ? Status.CREATED.name() : Status.ENDED.name());
         return loanMessageDTO;
     }
 }

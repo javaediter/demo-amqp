@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from "@angular/forms";
 import { TokenService } from '../services/token.service';
 import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,11 @@ import { LoginService } from '../services/login.service';
 export class LoginComponent {
   success: boolean = false;
 
-  constructor(private loginService: LoginService, private tokenService: TokenService) { }
+  constructor(private loginService: LoginService, private tokenService: TokenService, private router: Router) { }
+
+  ngOnInit() {
+    this.success = true;
+  }
 
   login(form: NgForm) {
     const username = form.value.email;
@@ -23,11 +28,13 @@ export class LoginComponent {
           this.tokenService.clearToken();
           const token = result.token;
           this.tokenService.setToken(token);
-          this.success = true;
         }
       },
       error: (error) => {
         this.success = false;
+      },
+      complete: () => {
+        this.router.navigate(['home']);
       }
     });
   }

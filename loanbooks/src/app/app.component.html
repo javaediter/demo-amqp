@@ -1,7 +1,9 @@
 <div class="container">
-  <app-login />
-  <app-books />
-  <app-new-loan />
-  <app-loans />
-  <app-logs />
+  @if (!isAuthenticated()) {
+    <app-login />
+  } @else {
+    <h3>{{ title }}</h3>
+    <app-navigation />
+    <router-outlet />
+  }
 </div>

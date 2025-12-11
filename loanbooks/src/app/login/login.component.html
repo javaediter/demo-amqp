@@ -11,10 +11,7 @@
             <button class="btn btn-primary w-100" type="submit">Login</button>
         </form>
         <div class="text-center mt-2">
-          @if (success){
-            <p class="text-success">Login success</p>
-          }
-          @else {
+          @if (!success){
             <p class="text-danger">Login failed</p>
           }
         </div>

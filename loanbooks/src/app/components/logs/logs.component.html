@@ -7,6 +7,7 @@
   <table class="table table-striped">
     <thead>
     <tr>
+      <th>Nº</th>
       <th>ID</th>
       <th>Id Book</th>
       <th>Id Person</th>
@@ -15,13 +16,16 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let log of logs">
-      <td>{{ log.id }}</td>
-      <td>{{ log.idBook }}</td>
-      <td>{{ log.idPerson }}</td>
-      <td>{{ log.status }}</td>
-      <td>{{ log.date }}</td>
-    </tr>
+      @for (log of logs; track $index){
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ log.id }}</td>
+          <td>{{ log.idBook }}</td>
+          <td>{{ log.idPerson }}</td>
+          <td>{{ log.status }}</td>
+          <td>{{ log.date }}</td>
+        </tr>
+      }
     </tbody>
   </table>
 </div>

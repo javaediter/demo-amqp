@@ -1,15 +1,20 @@
 import { Component } from '@angular/core';
-import { BooksComponent } from './components/books/books.component';
-import { LoginComponent } from "./login/login.component";
-import { NewLoanComponent } from './components/loans/new-loan/new-loan.component';
-import { LoansComponent } from './components/loans/loans.component';
-import { LogsComponent } from './components/logs/logs.component';
+import {RouterOutlet} from '@angular/router';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import {TokenService} from './services/token.service';
+import {LoginComponent} from './login/login.component';
 
 @Component({
   selector: 'app-root',
-  imports: [BooksComponent, LoginComponent, LoansComponent, NewLoanComponent, LogsComponent],
+  imports: [NavigationComponent, RouterOutlet, LoginComponent],
   templateUrl: './app.component.html'
 })
 export class AppComponent {
   title = 'Loan Books';
+
+  constructor(private tokenService: TokenService) {}
+
+  isAuthenticated() {
+    return this.tokenService.isAuthenticated();
+  }
 }

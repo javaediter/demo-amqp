@@ -1,0 +1,27 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg bg-secondary-subtle">
+    <div class="container-fluid">
+      <a title="home" class="navbar-brand active" [routerLink]="['']"><span class="bi-house"></span></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" [routerLink]="['books']">Books</a></li>
+          <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Loans</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['loans/search']" routerLinkActive="active">Search</a></li>
+              <li><a class="dropdown-item" [routerLink]="['loans/new']" routerLinkActive="active">New</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" [routerLink]="['logs']">Logs</a></li>
+          <li title="logout" class="nav-item"><a class="nav-link" (click)="logout()"><span class="bi-box-arrow-right"></span></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+</div>

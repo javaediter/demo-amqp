@@ -4,6 +4,7 @@ import ec.editer.amqp.consumer.dto.LoanBookDTO;
 import ec.editer.amqp.consumer.model.LoanBook;
 import ec.editer.amqp.message.dto.LoanMessageDTO;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 

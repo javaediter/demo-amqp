@@ -1,0 +1,418 @@
+2025-12-15T10:49:31.178-05:00  INFO 21712 --- [publisher] [restartedMain] e.e.amqp.publisher.PublisherApplication  : Starting PublisherApplication using Java 21.0.9 with PID 21712 (D:\Github\Java\netbeans-workspace\demo-amqp\publisher\target\classes started by Usuario in D:\Github\Java\netbeans-workspace\demo-amqp\publisher)
+2025-12-15T10:49:31.181-05:00  INFO 21712 --- [publisher] [restartedMain] e.e.amqp.publisher.PublisherApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-12-15T10:49:31.235-05:00  INFO 21712 --- [publisher] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-15T10:49:32.210-05:00  INFO 21712 --- [publisher] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-15T10:49:32.369-05:00  INFO 21712 --- [publisher] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 146 ms. Found 5 JPA repository interfaces.
+2025-12-15T10:49:32.589-05:00  INFO 21712 --- [publisher] [restartedMain] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2025-12-15T10:49:32.599-05:00  INFO 21712 --- [publisher] [restartedMain] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2025-12-15T10:49:33.534-05:00  INFO 21712 --- [publisher] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-15T10:49:33.556-05:00  INFO 21712 --- [publisher] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-15T10:49:33.557-05:00  INFO 21712 --- [publisher] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-15T10:49:33.610-05:00  INFO 21712 --- [publisher] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-15T10:49:33.610-05:00  INFO 21712 --- [publisher] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2371 ms
+2025-12-15T10:49:33.772-05:00  INFO 21712 --- [publisher] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-15T10:49:33.957-05:00  INFO 21712 --- [publisher] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b49647c
+2025-12-15T10:49:33.959-05:00  INFO 21712 --- [publisher] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-15T10:49:34.041-05:00  INFO 21712 --- [publisher] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-15T10:49:34.106-05:00  INFO 21712 --- [publisher] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-12-15T10:49:34.136-05:00  INFO 21712 --- [publisher] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-15T10:49:34.368-05:00  INFO 21712 --- [publisher] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-15T10:49:34.433-05:00  WARN 21712 --- [publisher] [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.6.51 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-12-15T10:49:34.448-05:00  INFO 21712 --- [publisher] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.6.51
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-15T10:49:35.160-05:00  INFO 21712 --- [publisher] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-15T10:49:35.163-05:00  INFO 21712 --- [publisher] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-15T10:49:35.853-05:00  INFO 21712 --- [publisher] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name securityUserDetailService
+2025-12-15T10:49:35.953-05:00  WARN 21712 --- [publisher] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-15T10:49:36.061-05:00 TRACE 21712 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.BookController:
+	{GET [/api/books/{id}]}: getBookById(Integer)
+	{GET [/api/books/all]}: getBooksAvailable(String)
+	{PUT [/api/books/update]}: updateBook(HashMap)
+2025-12-15T10:49:36.069-05:00 TRACE 21712 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.LoanController:
+	{GET [/api/loans/all-before]}: getAllByDate(String)
+	{POST [/api/loans/create]}: registerLoan(LoanDTO)
+	{POST [/api/loans/reverse]}: reverseLoan(HashMap)
+	{POST [/api/loans/end]}: endingLoan(HashMap)
+2025-12-15T10:49:36.071-05:00 TRACE 21712 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.LoginController:
+	{POST [/api/auth/login]}: login(AuthRequestDTO)
+2025-12-15T10:49:36.073-05:00 TRACE 21712 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.PublishController:
+	{POST [/api/pub/send]}: sendLoan(LoanMessageDTO)
+2025-12-15T10:49:36.073-05:00 TRACE 21712 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.UserController:
+	{POST [/api/users/user/create]}: createUser(UserDTO)
+2025-12-15T10:49:36.074-05:00 TRACE 21712 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.WelcomeController:
+	{GET [/welcome]}: welcome()
+2025-12-15T10:49:36.082-05:00 TRACE 21712 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2025-12-15T10:49:36.086-05:00 DEBUG 21712 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 13 mappings in 'requestMappingHandlerMapping'
+2025-12-15T10:49:36.096-05:00 DEBUG 21712 --- [publisher] [restartedMain] o.s.w.s.h.BeanNameUrlHandlerMapping      : Detected 0 mappings in 'beanNameHandlerMapping'
+2025-12-15T10:49:36.214-05:00 TRACE 21712 --- [publisher] [restartedMain] o.s.w.s.f.support.RouterFunctionMapping  : 0 RouterFunction(s) in 'routerFunctionMapping'
+2025-12-15T10:49:36.235-05:00 TRACE 21712 --- [publisher] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/webjars/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-12-15T10:49:36.235-05:00 TRACE 21712 --- [publisher] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-15T10:49:36.235-05:00 DEBUG 21712 --- [publisher] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-12-15T10:49:36.547-05:00 DEBUG 21712 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-12-15T10:49:36.587-05:00 DEBUG 21712 --- [publisher] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-12-15T10:49:36.760-05:00  INFO 21712 --- [publisher] [restartedMain] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2025-12-15T10:49:36.770-05:00  INFO 21712 --- [publisher] [restartedMain] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-12-15T10:49:36.770-05:00  INFO 21712 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : Quartz Scheduler v2.5.0 created.
+2025-12-15T10:49:36.771-05:00  INFO 21712 --- [publisher] [restartedMain] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2025-12-15T10:49:36.773-05:00  INFO 21712 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.5.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-12-15T10:49:36.773-05:00  INFO 21712 --- [publisher] [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2025-12-15T10:49:36.773-05:00  INFO 21712 --- [publisher] [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.5.0
+2025-12-15T10:49:36.773-05:00  INFO 21712 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@792204b9
+2025-12-15T10:49:36.815-05:00  INFO 21712 --- [publisher] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-15T10:49:36.933-05:00  INFO 21712 --- [publisher] [restartedMain] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-12-15T10:49:36.933-05:00  INFO 21712 --- [publisher] [restartedMain] o.s.i.channel.PublishSubscribeChannel    : Channel 'publisher.errorChannel' has 1 subscriber(s).
+2025-12-15T10:49:36.933-05:00  INFO 21712 --- [publisher] [restartedMain] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2025-12-15T10:49:36.956-05:00  INFO 21712 --- [publisher] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-15T10:49:36.958-05:00  INFO 21712 --- [publisher] [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2025-12-15T10:49:36.958-05:00  INFO 21712 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2025-12-15T10:49:36.973-05:00  INFO 21712 --- [publisher] [restartedMain] e.e.amqp.publisher.PublisherApplication  : Started PublisherApplication in 6.282 seconds (process running for 6.795)
+2025-12-15T10:49:55.695-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2025-12-15T10:49:55.696-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-15T10:49:55.701-05:00  INFO 21712 --- [publisher] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-15T10:49:55.706-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-12-15T10:49:55.706-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'publisher.errorChannel' has 0 subscriber(s).
+2025-12-15T10:49:55.706-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2025-12-15T10:49:55.707-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2025-12-15T10:49:55.707-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2025-12-15T10:49:55.707-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2025-12-15T10:49:55.707-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2025-12-15T10:49:55.710-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-15T10:49:55.711-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-15T10:49:55.716-05:00  INFO 21712 --- [publisher] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-15T11:17:48.442-05:00  INFO 32564 --- [publisher] [restartedMain] e.e.amqp.publisher.PublisherApplication  : Starting PublisherApplication using Java 21.0.9 with PID 32564 (D:\Github\Java\netbeans-workspace\demo-amqp\publisher\target\classes started by Usuario in D:\Github\Java\netbeans-workspace\demo-amqp\publisher)
+2025-12-15T11:17:48.445-05:00  INFO 32564 --- [publisher] [restartedMain] e.e.amqp.publisher.PublisherApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-12-15T11:17:48.490-05:00  INFO 32564 --- [publisher] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-15T11:17:49.378-05:00  INFO 32564 --- [publisher] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-15T11:17:49.511-05:00  INFO 32564 --- [publisher] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 123 ms. Found 5 JPA repository interfaces.
+2025-12-15T11:17:49.703-05:00  INFO 32564 --- [publisher] [restartedMain] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2025-12-15T11:17:49.720-05:00  INFO 32564 --- [publisher] [restartedMain] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2025-12-15T11:17:50.527-05:00  INFO 32564 --- [publisher] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-15T11:17:50.566-05:00  INFO 32564 --- [publisher] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-15T11:17:50.567-05:00  INFO 32564 --- [publisher] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-15T11:17:50.618-05:00  INFO 32564 --- [publisher] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-15T11:17:50.619-05:00  INFO 32564 --- [publisher] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2129 ms
+2025-12-15T11:17:50.755-05:00  INFO 32564 --- [publisher] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-15T11:17:50.931-05:00  INFO 32564 --- [publisher] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@733839cc
+2025-12-15T11:17:50.934-05:00  INFO 32564 --- [publisher] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-15T11:17:51.024-05:00  INFO 32564 --- [publisher] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-15T11:17:51.086-05:00  INFO 32564 --- [publisher] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-12-15T11:17:51.119-05:00  INFO 32564 --- [publisher] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-15T11:17:51.331-05:00  INFO 32564 --- [publisher] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-15T11:17:51.399-05:00  WARN 32564 --- [publisher] [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.6.51 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-12-15T11:17:51.414-05:00  INFO 32564 --- [publisher] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.6.51
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-15T11:17:52.135-05:00  INFO 32564 --- [publisher] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-15T11:17:52.137-05:00  INFO 32564 --- [publisher] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-15T11:17:52.800-05:00  INFO 32564 --- [publisher] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name securityUserDetailService
+2025-12-15T11:17:52.952-05:00  WARN 32564 --- [publisher] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-15T11:17:53.059-05:00 TRACE 32564 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.BookController:
+	{GET [/api/books/all]}: getBooksAvailable(String)
+	{GET [/api/books/{id}]}: getBookById(Integer)
+	{PUT [/api/books/update]}: updateBook(HashMap)
+2025-12-15T11:17:53.066-05:00 TRACE 32564 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.LoanController:
+	{POST [/api/loans/end]}: endingLoan(HashMap)
+	{POST [/api/loans/create]}: registerLoan(LoanDTO)
+	{POST [/api/loans/reverse]}: reverseLoan(HashMap)
+	{GET [/api/loans/all-before]}: getAllByDate(String)
+2025-12-15T11:17:53.068-05:00 TRACE 32564 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.LoginController:
+	{POST [/api/auth/login]}: login(AuthRequestDTO)
+2025-12-15T11:17:53.069-05:00 TRACE 32564 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.PublishController:
+	{POST [/api/pub/send]}: sendLoan(LoanMessageDTO)
+2025-12-15T11:17:53.069-05:00 TRACE 32564 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.UserController:
+	{POST [/api/users/user/create]}: createUser(UserDTO)
+2025-12-15T11:17:53.070-05:00 TRACE 32564 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	e.e.a.p.c.WelcomeController:
+	{GET [/welcome]}: welcome()
+2025-12-15T11:17:53.077-05:00 TRACE 32564 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2025-12-15T11:17:53.082-05:00 DEBUG 32564 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 13 mappings in 'requestMappingHandlerMapping'
+2025-12-15T11:17:53.093-05:00 DEBUG 32564 --- [publisher] [restartedMain] o.s.w.s.h.BeanNameUrlHandlerMapping      : Detected 0 mappings in 'beanNameHandlerMapping'
+2025-12-15T11:17:53.206-05:00 TRACE 32564 --- [publisher] [restartedMain] o.s.w.s.f.support.RouterFunctionMapping  : 0 RouterFunction(s) in 'routerFunctionMapping'
+2025-12-15T11:17:53.229-05:00 TRACE 32564 --- [publisher] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/webjars/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-12-15T11:17:53.229-05:00 TRACE 32564 --- [publisher] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-15T11:17:53.230-05:00 DEBUG 32564 --- [publisher] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-12-15T11:17:53.542-05:00 DEBUG 32564 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-12-15T11:17:53.588-05:00 DEBUG 32564 --- [publisher] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-12-15T11:17:53.807-05:00  INFO 32564 --- [publisher] [restartedMain] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2025-12-15T11:17:53.818-05:00  INFO 32564 --- [publisher] [restartedMain] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-12-15T11:17:53.818-05:00  INFO 32564 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : Quartz Scheduler v2.5.0 created.
+2025-12-15T11:17:53.822-05:00  INFO 32564 --- [publisher] [restartedMain] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2025-12-15T11:17:53.822-05:00  INFO 32564 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.5.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-12-15T11:17:53.822-05:00  INFO 32564 --- [publisher] [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2025-12-15T11:17:53.822-05:00  INFO 32564 --- [publisher] [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.5.0
+2025-12-15T11:17:53.823-05:00  INFO 32564 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@599e994
+2025-12-15T11:17:53.860-05:00  INFO 32564 --- [publisher] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-15T11:17:53.973-05:00  INFO 32564 --- [publisher] [restartedMain] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-12-15T11:17:53.974-05:00  INFO 32564 --- [publisher] [restartedMain] o.s.i.channel.PublishSubscribeChannel    : Channel 'publisher.errorChannel' has 1 subscriber(s).
+2025-12-15T11:17:53.974-05:00  INFO 32564 --- [publisher] [restartedMain] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2025-12-15T11:17:53.995-05:00  INFO 32564 --- [publisher] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-15T11:17:53.996-05:00  INFO 32564 --- [publisher] [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2025-12-15T11:17:53.997-05:00  INFO 32564 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2025-12-15T11:17:54.015-05:00  INFO 32564 --- [publisher] [restartedMain] e.e.amqp.publisher.PublisherApplication  : Started PublisherApplication in 6.039 seconds (process running for 6.522)
+2025-12-15T11:19:02.841-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2025-12-15T11:19:02.842-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-15T11:19:02.847-05:00  INFO 32564 --- [publisher] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-15T11:19:02.851-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-12-15T11:19:02.851-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'publisher.errorChannel' has 0 subscriber(s).
+2025-12-15T11:19:02.851-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2025-12-15T11:19:02.853-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2025-12-15T11:19:02.853-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2025-12-15T11:19:02.853-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2025-12-15T11:19:02.853-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2025-12-15T11:19:02.855-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-15T11:19:02.857-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-15T11:19:02.861-05:00  INFO 32564 --- [publisher] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-15T12:01:22.905-05:00  INFO 18892 --- [publisher] [restartedMain] e.e.amqp.publisher.PublisherApplication  : Starting PublisherApplication using Java 21.0.9 with PID 18892 (D:\Github\Java\netbeans-workspace\demo-amqp\publisher\target\classes started by Usuario in D:\Github\Java\netbeans-workspace\demo-amqp\publisher)
+2025-12-15T12:01:22.908-05:00  INFO 18892 --- [publisher] [restartedMain] e.e.amqp.publisher.PublisherApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-12-15T12:01:22.954-05:00  INFO 18892 --- [publisher] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-15T12:01:23.860-05:00  INFO 18892 --- [publisher] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-15T12:01:24.002-05:00  INFO 18892 --- [publisher] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 130 ms. Found 5 JPA repository interfaces.
+2025-12-15T12:01:24.195-05:00  INFO 18892 --- [publisher] [restartedMain] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2025-12-15T12:01:24.204-05:00  INFO 18892 --- [publisher] [restartedMain] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2025-12-15T12:01:25.056-05:00  INFO 18892 --- [publisher] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-15T12:01:25.095-05:00  INFO 18892 --- [publisher] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-15T12:01:25.096-05:00  INFO 18892 --- [publisher] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-15T12:01:25.164-05:00  INFO 18892 --- [publisher] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-15T12:01:25.165-05:00  INFO 18892 --- [publisher] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2209 ms
+2025-12-15T12:01:25.354-05:00  INFO 18892 --- [publisher] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-15T12:01:25.540-05:00  INFO 18892 --- [publisher] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4cb330bd
+2025-12-15T12:01:25.545-05:00  INFO 18892 --- [publisher] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-15T12:01:25.616-05:00  INFO 18892 --- [publisher] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-15T12:01:25.678-05:00  INFO 18892 --- [publisher] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-12-15T12:01:25.709-05:00  INFO 18892 --- [publisher] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-15T12:01:25.929-05:00  INFO 18892 --- [publisher] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-15T12:01:25.995-05:00  WARN 18892 --- [publisher] [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.6.51 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-12-15T12:01:26.007-05:00  INFO 18892 --- [publisher] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.6.51
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-15T12:01:26.725-05:00  INFO 18892 --- [publisher] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-15T12:01:26.727-05:00  INFO 18892 --- [publisher] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-15T12:01:27.496-05:00  INFO 18892 --- [publisher] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name securityUserDetailService
+2025-12-15T12:01:27.615-05:00  WARN 18892 --- [publisher] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-15T12:01:27.746-05:00 DEBUG 18892 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 13 mappings in 'requestMappingHandlerMapping'
+2025-12-15T12:01:27.920-05:00 DEBUG 18892 --- [publisher] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-12-15T12:01:28.236-05:00 DEBUG 18892 --- [publisher] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-12-15T12:01:28.296-05:00 DEBUG 18892 --- [publisher] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-12-15T12:01:28.546-05:00  INFO 18892 --- [publisher] [restartedMain] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2025-12-15T12:01:28.557-05:00  INFO 18892 --- [publisher] [restartedMain] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-12-15T12:01:28.557-05:00  INFO 18892 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : Quartz Scheduler v2.5.0 created.
+2025-12-15T12:01:28.558-05:00  INFO 18892 --- [publisher] [restartedMain] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2025-12-15T12:01:28.559-05:00  INFO 18892 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.5.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-12-15T12:01:28.559-05:00  INFO 18892 --- [publisher] [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2025-12-15T12:01:28.559-05:00  INFO 18892 --- [publisher] [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.5.0
+2025-12-15T12:01:28.559-05:00  INFO 18892 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1e649fd0
+2025-12-15T12:01:28.599-05:00  INFO 18892 --- [publisher] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-15T12:01:28.716-05:00  INFO 18892 --- [publisher] [restartedMain] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-12-15T12:01:28.717-05:00  INFO 18892 --- [publisher] [restartedMain] o.s.i.channel.PublishSubscribeChannel    : Channel 'publisher.errorChannel' has 1 subscriber(s).
+2025-12-15T12:01:28.718-05:00  INFO 18892 --- [publisher] [restartedMain] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2025-12-15T12:01:28.741-05:00  INFO 18892 --- [publisher] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-15T12:01:28.743-05:00  INFO 18892 --- [publisher] [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2025-12-15T12:01:28.745-05:00  INFO 18892 --- [publisher] [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2025-12-15T12:01:28.764-05:00  INFO 18892 --- [publisher] [restartedMain] e.e.amqp.publisher.PublisherApplication  : Started PublisherApplication in 6.374 seconds (process running for 6.924)
+2025-12-15T12:05:00.014-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 12:05:00 ECT 2025 -----
+2025-12-15T12:05:00.148-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T12:05:00.151-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T12:05:00.151-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T12:05:00.170-05:00  INFO 18892 --- [publisher] [scheduling-1] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-12-15T12:05:00.208-05:00  INFO 18892 --- [publisher] [scheduling-1] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#76f12ad9:0/SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:05:00.211-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitAdmin         : Initializing declarations
+2025-12-15T12:05:00.222-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.a.r.c.CachingConnectionFactory       : Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-12-15T12:05:00.229-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitAdmin$$Lambda/0x00000251acb81d90 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:05:00.229-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitAdmin         : declaring Exchange 'loans.topic'
+2025-12-15T12:05:00.235-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitAdmin         : Declarations finished
+2025-12-15T12:05:00.235-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:05:00.243-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T12:10:00.006-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 12:10:00 ECT 2025 -----
+2025-12-15T12:10:00.013-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T12:10:00.013-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T12:10:00.013-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T12:10:00.014-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:10:00.016-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T12:15:00.014-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 12:15:00 ECT 2025 -----
+2025-12-15T12:15:00.029-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T12:15:00.029-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T12:15:00.030-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T12:15:00.030-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:15:00.030-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T12:20:00.002-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 12:20:00 ECT 2025 -----
+2025-12-15T12:20:00.014-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T12:20:00.014-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T12:20:00.014-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T12:20:00.015-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:20:00.015-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T12:25:00.001-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 12:25:00 ECT 2025 -----
+2025-12-15T12:25:00.013-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T12:25:00.013-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T12:25:00.013-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T12:25:00.014-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:25:00.014-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T12:30:00.005-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 12:30:00 ECT 2025 -----
+2025-12-15T12:30:00.015-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T12:30:00.015-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T12:30:00.015-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T12:30:00.015-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:30:00.015-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T12:35:00.003-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 12:35:00 ECT 2025 -----
+2025-12-15T12:35:00.012-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T12:35:00.012-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T12:35:00.012-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T12:35:00.012-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:35:00.012-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T12:40:00.003-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 12:40:00 ECT 2025 -----
+2025-12-15T12:40:00.010-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T12:40:00.010-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T12:40:00.010-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T12:40:00.011-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:40:00.011-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T12:45:00.009-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 12:45:00 ECT 2025 -----
+2025-12-15T12:45:00.017-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T12:45:00.017-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T12:45:00.017-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T12:45:00.017-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:45:00.018-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T12:50:00.013-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 12:50:00 ECT 2025 -----
+2025-12-15T12:50:00.018-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T12:50:00.018-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T12:50:00.018-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T12:50:00.019-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:50:00.019-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T12:55:00.009-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 12:55:00 ECT 2025 -----
+2025-12-15T12:55:00.025-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T12:55:00.025-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T12:55:00.026-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T12:55:00.026-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T12:55:00.026-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:00:00.007-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 13:00:00 ECT 2025 -----
+2025-12-15T13:00:00.015-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T13:00:00.015-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T13:00:00.016-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T13:00:00.016-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T13:00:00.016-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:05:00.015-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 13:05:00 ECT 2025 -----
+2025-12-15T13:05:00.022-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T13:05:00.022-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T13:05:00.022-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T13:05:00.023-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T13:05:00.023-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:10:00.001-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 13:10:00 ECT 2025 -----
+2025-12-15T13:10:00.009-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T13:10:00.010-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T13:10:00.010-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T13:10:00.010-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T13:10:00.010-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:15:00.012-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 13:15:00 ECT 2025 -----
+2025-12-15T13:15:00.019-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T13:15:00.019-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T13:15:00.019-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T13:15:00.020-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T13:15:00.020-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:20:00.001-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 13:20:00 ECT 2025 -----
+2025-12-15T13:20:00.008-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T13:20:00.009-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T13:20:00.009-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T13:20:00.009-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T13:20:00.009-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:25:00.003-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 13:25:00 ECT 2025 -----
+2025-12-15T13:25:00.016-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T13:25:00.017-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T13:25:00.017-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T13:25:00.018-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T13:25:00.018-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:30:00.004-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 13:30:00 ECT 2025 -----
+2025-12-15T13:30:00.017-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T13:30:00.017-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T13:30:00.018-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T13:30:00.019-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T13:30:00.019-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:35:00.005-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 13:35:00 ECT 2025 -----
+2025-12-15T13:35:00.016-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T13:35:00.017-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T13:35:00.017-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T13:35:00.018-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T13:35:00.018-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:40:00.000-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 13:40:00 ECT 2025 -----
+2025-12-15T13:40:00.008-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T13:40:00.008-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T13:40:00.008-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T13:40:00.009-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T13:40:00.009-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:45:00.013-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 13:45:00 ECT 2025 -----
+2025-12-15T13:45:00.022-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T13:45:00.023-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T13:45:00.023-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T13:45:00.023-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T13:45:00.023-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:50:00.006-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- countAvailableBooks Mon Dec 15 13:50:00 ECT 2025 -----
+2025-12-15T13:50:00.019-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- available books 3 -----
+2025-12-15T13:50:00.019-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.JobService    : ----- not available books 2 -----
+2025-12-15T13:50:00.019-05:00  INFO 18892 --- [publisher] [scheduling-1] e.e.amqp.publisher.service.BookProducer  : ----- sendCountNotAvailableBook count 3 -----
+2025-12-15T13:50:00.020-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitTemplate$$Lambda/0x00000251acb60618 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5f075baf Shared Rabbit Connection: SimpleConnection@5a3e2863 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57505]
+2025-12-15T13:50:00.020-05:00 DEBUG 18892 --- [publisher] [scheduling-1] o.s.amqp.rabbit.core.RabbitTemplate      : Publishing message [(Body:'3' MessageProperties [headers={__TypeId__=java.lang.Long}, contentType=application/json, contentEncoding=UTF-8, contentLength=1, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [loans.topic], routingKey = [loan.book.ava]
+2025-12-15T13:54:12.300-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2025-12-15T13:54:12.301-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-15T13:54:12.307-05:00  INFO 18892 --- [publisher] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-15T13:54:12.313-05:00 DEBUG 18892 --- [publisher] [SpringApplicationShutdownHook] o.s.a.r.c.CachingConnectionFactory       : Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-12-15T13:54:12.325-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-12-15T13:54:12.325-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'publisher.errorChannel' has 0 subscriber(s).
+2025-12-15T13:54:12.325-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2025-12-15T13:54:12.327-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2025-12-15T13:54:12.327-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2025-12-15T13:54:12.327-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2025-12-15T13:54:12.327-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2025-12-15T13:54:12.332-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-15T13:54:12.336-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-15T13:54:12.339-05:00  INFO 18892 --- [publisher] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

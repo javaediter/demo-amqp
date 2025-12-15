@@ -2,7 +2,7 @@
   @if (!isAuthenticated()) {
     <app-login />
   } @else {
-    <h3>{{ title }}</h3>
+    <h3 class="text-center text-info-emphasis">{{ title }}</h3>
     <app-navigation />
     <router-outlet />
   }

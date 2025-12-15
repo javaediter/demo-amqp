@@ -82,7 +82,7 @@ public class LoanService implements ILoanService{
     public List<LoanFullDTO> getAllByDates(String date) {
         try{
             Date endDate = convertStringToDate(date);
-            return loanRepository.findAllByDateLessThanEqual(endDate)
+            return loanRepository.findAllByDateLessThanEqualOrderByDateDesc(endDate)
                     .stream()
                     .map(entity -> {
                         BookDTO bookDTO = new BookDTO();

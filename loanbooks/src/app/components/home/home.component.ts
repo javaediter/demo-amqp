@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
-
+  message: string = 'Welcome to the home!';
 }

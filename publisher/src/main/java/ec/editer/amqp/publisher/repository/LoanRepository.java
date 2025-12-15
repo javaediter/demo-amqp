@@ -11,5 +11,5 @@ import java.util.List;
  * @author Edison Teran
  */
 public interface LoanRepository extends JpaRepository<Loan, Integer>{
-    List<Loan> findAllByDateLessThanEqual(Date date);
+    List<Loan> findAllByDateLessThanEqualOrderByDateDesc(Date date);
 }

@@ -1,12 +1,18 @@
-<h3>Loans</h3>
-<div>
-  <input class="form-control" type="date" [(ngModel)]="date" />
-  <button class="btn btn-primary" (click)="searchLoans()">Search</button>
-</div>
-<div>
-  <table class="table table-striped">
-    <thead>
+<div class="container-fluid">
+  <h3 class="text-info-emphasis mt-1">Loans</h3>
+  <div class="row">
+    <div class="col-3">
+      <input class="form-control" type="date" [(ngModel)]="date" />
+    </div>
+    <div class="col">
+      <button class="btn btn-primary" (click)="searchLoans()" title="search"><span class="bi-search"></span></button>
+    </div>
+  </div>
+  <div class="mt-1">
+    <table class="table table-striped table-hover">
+      <thead>
       <tr>
+        <th>Nº</th>
         <th>ID</th>
         <th>Person</th>
         <th>Id Person</th>
@@ -15,22 +21,68 @@
         <th>Status</th>
         <th>Actions</th>
       </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let loan of loans">
-        <td>{{ loan.id }}</td>
-        <td>{{ loan.firstName }} {{ loan.lastName }}</td>
-        <td>{{ loan.idPerson }}</td>
-        <td>{{ loan.date }}</td>
-        <td>{{ loan.book.title }}</td>
-        <td>{{ loan.status }}</td>
-        <td>
-          @if (loan.status == 'CREATED'){
-            <button id="btn-rev-{{ loan.id }}" type="button" class="btn btn-warning m-1" (click)="reverseLoans(loan.id)">Reverse</button>
-            <button id="btn-end-{{ loan.id }}" type="button" class="btn btn-success mt-1" (click)="endLoan(loan.id)">End</button>
-          }
-        </td>
-      </tr>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        @for (loan of loans; track $index){
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ loan.id }}</td>
+            <td>{{ loan.firstName }} {{ loan.lastName }}</td>
+            <td>{{ loan.idPerson }}</td>
+            <td>{{ loan.date }}</td>
+            <td>{{ loan.book.title }}</td>
+            <td>{{ loan.status }}</td>
+            <td>
+              @if (loan.status == 'CREATED'){
+                <button type="button" class="btn btn-warning m-1" data-bs-target="#reverseModal" data-bs-toggle="modal"
+                        title="reverse" (click)="selectLoan(loan)">
+                  <span class="bi-arrow-counterclockwise"></span>
+                </button>
+                <button type="button" class="btn btn-success mt-1" data-bs-target="#endModal" data-bs-toggle="modal"
+                        title="end" (click)="selectLoan(loan)">
+                  <span class="bi-check-circle"></span>
+                </button>
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="reverseModal" class="modal fade" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-warning-subtle">
+        <h5 class="modal-title fs-5">Reverse loan book</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-danger-emphasis text-center">Do you want reverse the loan ID: {{ loanSelected.id }}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-warning" (click)="reverseLoans(loanSelected.id)">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="endModal" class="modal fade" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success-subtle">
+        <h5 class="modal-title fs-5">End loan book</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-danger-emphasis text-center">Do you want to end the loan ID: {{ loanSelected.id }}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-success" (click)="endLoan(loanSelected.id)">Yes</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -2,6 +2,7 @@ package ec.editer.amqp.consumer.security;
 
 import ec.editer.amqp.consumer.jwt.JwtAuthFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,6 +29,9 @@ import java.util.List;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
+
+    @Value("${cors.frontend.app}")
+    private String frontend;
     
     @Autowired
     private JwtAuthFilter jwtAuthFilter;
@@ -35,7 +39,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:4200")); // Tu frontend Angular
+        config.setAllowedOrigins(List.of("http://localhost:4200", String.format("http://%s", frontend))); // Frontend Angular
         config.setAllowedMethods(List.of("GET", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);

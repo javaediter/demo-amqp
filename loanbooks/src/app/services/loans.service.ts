@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {TokenService} from './token.service';
-import {LoansComponent} from '../components/loans/loans.component';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoansService {
 
-  apiUrl = 'http://localhost:9090/api/loans';
+  apiUrl = `${environment.apiPub}/loans`;
 
   constructor(private http: HttpClient, private tokenService: TokenService) { }
 

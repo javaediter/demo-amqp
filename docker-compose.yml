@@ -1,0 +1,90 @@
+services:
+  mysql-books:
+    image: mysql:8.0
+    container_name: mysql-books
+    hostname: mysql-books
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=books
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    ports:
+      - "3307:3306"
+    volumes:
+      - data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    networks:
+      - netbooks
+
+  mongo-loans:
+    image: mongo:8.0
+    container_name: mongo-loans
+    hostname: mongo-loans
+    restart: always
+    ports:
+      - "27018:27017"
+    networks:
+      - netbooks
+
+  rabbit-loans:
+    image: rabbitmq:management
+    container_name: rabbit-loans
+    hostname: rabbit-loans
+    restart: always
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    networks:
+      - netbooks
+  
+  pub-web:
+    image: pub-web-img
+    container_name: pub-web
+    hostname: pub-web
+    env_file:
+      - ./publisher/.env.prod
+    ports:
+      - "9090:9090"
+    depends_on:
+      mysql-books:
+        condition: service_healthy
+    networks:
+      - netbooks
+  
+  con-web:
+    image: con-web-img
+    container_name: con-web
+    hostname: con-web
+    env_file:
+      - ./consumer/.env.prod
+    ports:
+      - "9091:9091"
+    depends_on:
+      mysql-books:
+        condition: service_healthy
+    networks:
+      - netbooks
+  
+  loanbooks:
+    image: loanbooks-img
+    container_name: loanbooks
+    hostname: loanbooks
+    restart: always
+    ports:
+      - "4200:80"
+    depends_on:
+      - pub-web
+      - con-web
+    networks:
+      - netbooks
+
+volumes:
+  data:
+
+networks:
+  netbooks:
+    name: netbooks

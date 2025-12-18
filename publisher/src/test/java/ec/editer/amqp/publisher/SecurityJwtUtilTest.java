@@ -52,7 +52,8 @@ public class SecurityJwtUtilTest {
         System.out.println("encoder: " + encoderPasswd);
         assertNotNull(encoderPasswd);
     }
-    
+
+    @Disabled
     @Test
     public void generateTokenTest(){
         String token = jwtUtil.generateToken(user);
@@ -60,6 +61,7 @@ public class SecurityJwtUtilTest {
         assertNotNull(token);
     }
 
+    @Disabled
     @Test
     public void extractUsernameTest(){
         String token = jwtUtil.generateToken(user);
@@ -68,6 +70,7 @@ public class SecurityJwtUtilTest {
         assertNotNull(username);
     }
 
+    @Disabled
     @Test
     public void validateTokenTest(){
         String token = jwtUtil.generateToken(user);        

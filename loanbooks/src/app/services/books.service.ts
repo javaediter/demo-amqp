@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { TokenService } from './token.service';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
 
-  private apiUrl = 'http://localhost:9090/api/books';
+  private apiUrl = `${environment.apiPub}/books`;
 
   constructor(private http: HttpClient, private tokenService: TokenService) { }
 

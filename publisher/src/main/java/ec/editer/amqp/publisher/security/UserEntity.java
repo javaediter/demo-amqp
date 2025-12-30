@@ -28,6 +28,8 @@ public class UserEntity {
     private String username;
     
     private String password;
+
+    private boolean active;
     
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private List<UserRolEntity> authorities;

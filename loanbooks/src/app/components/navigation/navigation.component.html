@@ -18,6 +18,15 @@
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" [routerLink]="['logs']">Logs</a></li>
+
+          <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Users</a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" [routerLink]="['users/users']">Users</a></li>
+              <li><a class="dropdown-item" [routerLink]="['users/new']" routerLinkActive="active">New</a></li>
+            </ul>
+          </li>
+
           <li title="logout" class="nav-item"><a class="nav-link" (click)="logout()"><span class="bi-box-arrow-right"></span></a></li>
         </ul>
       </div>
